@@ -112,6 +112,7 @@
             this.fermerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.fermerToolStripMenuItem.Text = "&Fermer";
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
             // actionToolStripMenuItem
             // 

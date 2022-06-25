@@ -144,7 +144,7 @@
             this.ajouterButton.Name = "ajouterButton";
             this.ajouterButton.Size = new System.Drawing.Size(95, 33);
             this.ajouterButton.TabIndex = 15;
-            this.ajouterButton.Text = "Ok";
+            this.ajouterButton.Text = "Enregistrer";
             this.ajouterButton.UseVisualStyleBackColor = true;
             this.ajouterButton.Click += new System.EventHandler(this.ajouterButton_Click);
             // 

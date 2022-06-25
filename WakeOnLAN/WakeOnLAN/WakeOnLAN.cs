@@ -52,5 +52,15 @@ namespace WakeOnLAN
                 // No validation here, the form takes care of it all.
             }
         }
+
+        /// <summary>
+        /// Event called when we click the close button
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
