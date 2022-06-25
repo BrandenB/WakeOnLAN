@@ -127,6 +127,7 @@
             this.réveillerUnGroupeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.réveillerUnGroupeToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
             this.réveillerUnGroupeToolStripMenuItem.Text = "&Réveiller un groupe d\'ordinateurs";
+            this.réveillerUnGroupeToolStripMenuItem.Click += new System.EventHandler(this.réveillerUnGroupeToolStripMenuItem_Click);
             // 
             // dataGridView
             // 

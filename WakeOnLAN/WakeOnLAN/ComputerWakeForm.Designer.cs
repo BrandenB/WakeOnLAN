@@ -47,6 +47,7 @@
             this.wakeUpButton.TabIndex = 16;
             this.wakeUpButton.Text = "Réveiller";
             this.wakeUpButton.UseVisualStyleBackColor = true;
+            this.wakeUpButton.Click += new System.EventHandler(this.wakeUpButton_Click);
             // 
             // cancelButton
             // 
@@ -66,6 +67,7 @@
             this.computerGroup.Name = "computerGroup";
             this.computerGroup.Size = new System.Drawing.Size(321, 23);
             this.computerGroup.TabIndex = 19;
+            this.computerGroup.Validating += new System.ComponentModel.CancelEventHandler(this.computerGroup_Validating);
             // 
             // label3
             // 
@@ -119,6 +121,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Réveiller un groupe d\'ordinateurs";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.ComputerWakeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

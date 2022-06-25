@@ -38,5 +38,19 @@ namespace WakeOnLAN
                 }
             }
         }
+
+        /// <summary>
+        /// Method called when we click the wake up button.
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void réveillerUnGroupeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ComputerWakeForm form = new ComputerWakeForm())
+            {
+                form.ShowDialog();
+                // No validation here, the form takes care of it all.
+            }
+        }
     }
 }
