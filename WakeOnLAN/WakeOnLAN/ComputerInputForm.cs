@@ -35,32 +35,56 @@ namespace WakeOnLAN
         /// <summary>
         /// Public property that passes the name of the computer to the main form.
         /// </summary>
-        public string ComputerName => Regex.Replace(this.computerName.Text.Trim().ToUpper(), _escapeSpecialChars, "");
+        public string ComputerName
+        {
+            get => Regex.Replace(this.computerName.Text.Trim().ToUpper(), _escapeSpecialChars, "");
+            set => this.computerName.Text = value;
+        }
 
         /// <summary>
         /// Public property that passes the MAC of the computer to the main form.
         /// </summary>
-        public string ComputerMac => this.computerMac.Text.Trim().ToUpper();
+        public string ComputerMac
+        {
+            get => this.computerMac.Text.Trim().ToUpper();
+            set => this.computerMac.Text = value;
+        }
 
         /// <summary>
         /// Public property that passes the group of the computer to the main form.
         /// </summary>
-        public string ComputerGroup => this.computerGroup.Text.Trim();
+        public string ComputerGroup
+        {
+            get => this.computerGroup.Text.Trim();
+            set => this.computerGroup.Text = value;
+        }
 
         /// <summary>
         /// Public property that passes the local of the computer to the main form.
         /// </summary>
-        public string ComputerLocal => Regex.Replace(this.computerLocal.Text.Trim(), _escapeSpecialChars, "");
+        public string ComputerLocal
+        {
+            get => Regex.Replace(this.computerLocal.Text.Trim(), _escapeSpecialChars, "");
+            set => this.computerLocal.Text = value;
+        }
 
         /// <summary>
         /// Public property that passes the VLAN of the computer to the main form.
         /// </summary>
-        public string ComputerVlan => Regex.Replace(this.computerVLAN.Text.Trim(), _escapeSpecialChars, "");
+        public string ComputerVlan
+        {
+            get => Regex.Replace(this.computerVLAN.Text.Trim(), _escapeSpecialChars, "");
+            set => this.computerVLAN.Text = value;
+        }
 
         /// <summary>
         /// Public property that passes the information of the computer to the main form.
         /// </summary>
-        public string ComputerInformation => Regex.Replace(this.computerInformation.Text.Trim(), _escapeSpecialChars, "");
+        public string ComputerInformation
+        {
+            get => Regex.Replace(this.computerInformation.Text.Trim(), _escapeSpecialChars, "");
+            set => this.computerInformation.Text = value;
+        }
 
         /// <summary>
         /// Public property to set the available computer groups.

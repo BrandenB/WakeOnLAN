@@ -1,4 +1,8 @@
-﻿using System.ComponentModel;
+﻿/**
+* Author: Branden Brideau
+* Date: June 2022
+*/
+using System.ComponentModel;
 
 namespace WakeOnLAN.Enums
 {

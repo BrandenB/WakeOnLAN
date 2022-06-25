@@ -130,6 +130,7 @@
             // 
             // computerGroup
             // 
+            this.computerGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.computerGroup.FormattingEnabled = true;
             this.computerGroup.Location = new System.Drawing.Point(182, 89);
             this.computerGroup.Name = "computerGroup";
@@ -143,7 +144,7 @@
             this.ajouterButton.Name = "ajouterButton";
             this.ajouterButton.Size = new System.Drawing.Size(95, 33);
             this.ajouterButton.TabIndex = 15;
-            this.ajouterButton.Text = "Ajouter";
+            this.ajouterButton.Text = "Ok";
             this.ajouterButton.UseVisualStyleBackColor = true;
             this.ajouterButton.Click += new System.EventHandler(this.ajouterButton_Click);
             // 
@@ -208,7 +209,7 @@
             this.MinimumSize = new System.Drawing.Size(549, 313);
             this.Name = "ComputerInputForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Ajouter un ordinateur";
+            this.Text = "Ajouter/modifier un ordinateur";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ComputerInputForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

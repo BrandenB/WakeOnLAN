@@ -34,7 +34,6 @@
             this.ajouterUnordinateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUngroupeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.suprimerUnGroupeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +67,6 @@
             this.ajouterUnordinateurToolStripMenuItem,
             this.ajouterUngroupeToolStripMenuItem,
             this.toolStripSeparator1,
-            this.toolStripMenuItem2,
             this.suprimerUnGroupeToolStripMenuItem,
             this.toolStripSeparator2,
             this.fermerToolStripMenuItem});
@@ -95,13 +93,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(228, 6);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(231, 22);
-            this.toolStripMenuItem2.Text = "&Modifier un odinateur";
             // 
             // suprimerUnGroupeToolStripMenuItem
             // 
@@ -232,7 +223,6 @@
         private ToolStripMenuItem fermerToolStripMenuItem;
         private ToolStripMenuItem actionToolStripMenuItem;
         private ToolStripMenuItem réveillerUnGroupeToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem2;
         private DataGridView dataGridView;
         private DataGridViewTextBoxColumn HeaderComputerName;
         private DataGridViewTextBoxColumn HeaderComputerMac;
