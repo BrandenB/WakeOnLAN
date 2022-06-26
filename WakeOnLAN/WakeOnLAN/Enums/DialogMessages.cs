@@ -49,6 +49,9 @@ namespace WakeOnLAN.Enums
 
             [Description("Le groupe a été suprimer!")]
             CON_GROUP_DELETED = 11,
+
+            [Description("Êtes-vous sûr de vouloir supprimer cet ordinateur de la liste?")]
+            CON_COMPUTER_DELETION = 12,
         }
 
         #region Public methods

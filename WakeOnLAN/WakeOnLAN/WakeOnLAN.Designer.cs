@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.formMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +47,12 @@
             this.HeaderClasseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeaderComputerVLAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComputerOtherInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // formMenuStrip
@@ -160,6 +165,7 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(800, 426);
             this.dataGridView.TabIndex = 1;
+            this.dataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseDown);
             // 
             // HeaderComputerName
             // 
@@ -191,6 +197,28 @@
             this.ComputerOtherInfo.HeaderText = "Information";
             this.ComputerOtherInfo.Name = "ComputerOtherInfo";
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.suprimerToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(123, 48);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // suprimerToolStripMenuItem
+            // 
+            this.suprimerToolStripMenuItem.Name = "suprimerToolStripMenuItem";
+            this.suprimerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.suprimerToolStripMenuItem.Text = "Suprimer";
+            this.suprimerToolStripMenuItem.Click += new System.EventHandler(this.suprimerToolStripMenuItem_Click);
+            // 
             // WakeOnLAN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -206,6 +234,7 @@
             this.formMenuStrip.ResumeLayout(false);
             this.formMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +259,8 @@
         private DataGridViewTextBoxColumn HeaderClasseName;
         private DataGridViewTextBoxColumn HeaderComputerVLAN;
         private DataGridViewTextBoxColumn ComputerOtherInfo;
+        private ContextMenuStrip contextMenuStrip;
+        private ToolStripMenuItem modifierToolStripMenuItem;
+        private ToolStripMenuItem suprimerToolStripMenuItem;
     }
 }

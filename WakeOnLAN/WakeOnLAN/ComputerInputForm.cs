@@ -28,6 +28,11 @@ namespace WakeOnLAN
         /// </summary>
         private readonly string _escapeSpecialChars = "(<|>|\"|)";
 
+        /// <summary>
+        /// Computer group.
+        /// </summary>
+        private string _computerGroup = string.Empty;
+
         #endregion
 
         #region Public properties
@@ -56,7 +61,7 @@ namespace WakeOnLAN
         public string ComputerGroup
         {
             get => this.computerGroup.Text.Trim();
-            set => this.computerGroup.Text = value;
+            set => this._computerGroup = value;
         }
 
         /// <summary>
@@ -121,6 +126,7 @@ namespace WakeOnLAN
         private void ComputerInputForm_Load(object sender, EventArgs e)
         {
             this.computerGroup.Items.AddRange(_computerGroups.ToArray());
+            this.computerGroup.Text = _computerGroup;
         }
 
         /// <summary>
