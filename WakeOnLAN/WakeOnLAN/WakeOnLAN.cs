@@ -204,6 +204,11 @@ namespace WakeOnLAN
 
                 if (form.DialogResult is DialogResult.Yes)
                 {
+                    // Make sure the group doesn't exist.
+                    if (_xmlGroups.Contains(form.ComputerGroup))
+                    {
+                        return;
+                    }
                     // Create a new node.
                     XmlNode child = _document.CreateElement(form.ComputerGroup);
                     // Add the new group.

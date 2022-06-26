@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RepositoryUrl>https://github.com/BrandenB/WakeOnLAN</RepositoryUrl>
+    <FileVersion>2.0.0</FileVersion>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <Description>A simple application to perform a wake on LAN to a group of computers.</Description>
   </PropertyGroup>
 
   <ItemGroup>
