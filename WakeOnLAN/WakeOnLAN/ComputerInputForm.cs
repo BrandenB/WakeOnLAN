@@ -26,7 +26,7 @@ namespace WakeOnLAN
         /// <summary>
         /// Regex for prohibited XML chars to be used,
         /// </summary>
-        private readonly string _escapeSpecialChars = "(<|>|\")";
+        private readonly string _escapeSpecialChars = "(<|>|\"|)";
 
         #endregion
 

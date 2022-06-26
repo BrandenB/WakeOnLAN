@@ -40,6 +40,15 @@ namespace WakeOnLAN.Enums
 
             [Description("Tous les ordinateurs de ce groupe ont été réveillés.")]
             INFO_WAKE_UP_COMPLETED = 8,
+
+            [Description("Un nom de groupe doit être entrée.")]
+            ERR_COMPUTER_GROUP_EMPTY = 9,
+
+            [Description("Le fichier xml n'existe pas. Voulez vous q'un soit crée automatiquement?")]
+            ERR_XML_NOT_FOUND = 10,
+
+            [Description("Le groupe a été suprimer!")]
+            CON_GROUP_DELETED = 11,
         }
 
         #region Public methods

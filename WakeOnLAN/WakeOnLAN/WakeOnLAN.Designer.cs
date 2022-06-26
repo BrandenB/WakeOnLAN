@@ -88,6 +88,7 @@
             this.ajouterUngroupeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.ajouterUngroupeToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.ajouterUngroupeToolStripMenuItem.Text = "Ajouter un &groupe";
+            this.ajouterUngroupeToolStripMenuItem.Click += new System.EventHandler(this.ajouterUngroupeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -100,6 +101,7 @@
             this.suprimerUnGroupeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.suprimerUnGroupeToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.suprimerUnGroupeToolStripMenuItem.Text = "&Suprimer un groupe";
+            this.suprimerUnGroupeToolStripMenuItem.Click += new System.EventHandler(this.suprimerUnGroupeToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -132,6 +134,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -162,37 +165,31 @@
             // 
             this.HeaderComputerName.HeaderText = "Nom de l\'ordinateur";
             this.HeaderComputerName.Name = "HeaderComputerName";
-            this.HeaderComputerName.ReadOnly = true;
             // 
             // HeaderComputerMac
             // 
             this.HeaderComputerMac.HeaderText = "Adresse MAC";
             this.HeaderComputerMac.Name = "HeaderComputerMac";
-            this.HeaderComputerMac.ReadOnly = true;
             // 
             // HeaderComputerGroup
             // 
             this.HeaderComputerGroup.HeaderText = "Groupe";
             this.HeaderComputerGroup.Name = "HeaderComputerGroup";
-            this.HeaderComputerGroup.ReadOnly = true;
             // 
             // HeaderClasseName
             // 
             this.HeaderClasseName.HeaderText = "Local";
             this.HeaderClasseName.Name = "HeaderClasseName";
-            this.HeaderClasseName.ReadOnly = true;
             // 
             // HeaderComputerVLAN
             // 
             this.HeaderComputerVLAN.HeaderText = "VLAN";
             this.HeaderComputerVLAN.Name = "HeaderComputerVLAN";
-            this.HeaderComputerVLAN.ReadOnly = true;
             // 
             // ComputerOtherInfo
             // 
             this.ComputerOtherInfo.HeaderText = "Information";
             this.ComputerOtherInfo.Name = "ComputerOtherInfo";
-            this.ComputerOtherInfo.ReadOnly = true;
             // 
             // WakeOnLAN
             // 
@@ -203,6 +200,7 @@
             this.Controls.Add(this.formMenuStrip);
             this.MainMenuStrip = this.formMenuStrip;
             this.Name = "WakeOnLAN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WakeOnLAN";
             this.Load += new System.EventHandler(this.WakeOnLAN_Load);
             this.formMenuStrip.ResumeLayout(false);

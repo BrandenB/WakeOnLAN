@@ -179,7 +179,6 @@
             // errorProvider
             // 
             this.errorProvider.BlinkRate = 150;
-            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.errorProvider.ContainerControl = this;
             // 
             // ComputerInputForm

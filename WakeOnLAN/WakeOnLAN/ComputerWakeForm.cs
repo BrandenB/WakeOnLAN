@@ -24,6 +24,16 @@ namespace WakeOnLAN
         /// </summary>
         private List<string> _computerGroups = new();
 
+        /// <summary>
+        /// Where all macs are stored.
+        /// </summary>
+        private List<string> tmpMacList = new();
+
+        /// <summary>
+        /// Background worker.
+        /// </summary>
+        private BackgroundWorker _worker = new();
+
         #endregion
 
         #region Public properties
@@ -56,6 +66,14 @@ namespace WakeOnLAN
         public ComputerWakeForm()
         {
             InitializeComponent();
+
+            #pragma warning disable CS8622 
+            _worker.DoWork += backgroundWorker_WakeComputers;
+            #pragma warning disable CS8622 
+            _worker.ProgressChanged += backgroundWorker_ProgressChanged;
+            #pragma warning disable CS8622
+            _worker.RunWorkerCompleted += backgroundWorker_Completed;
+            _worker.WorkerReportsProgress = true;
         }
 
         #endregion
@@ -78,8 +96,6 @@ namespace WakeOnLAN
         /// <param name="e">Event arguments.</param>
         private void wakeUpButton_Click(object sender, EventArgs e)
         {
-            List<string> tmpMacList = new();
-
             // Disable the button until this is all done.
             this.wakeUpButton.Enabled = false;
 
@@ -101,52 +117,9 @@ namespace WakeOnLAN
                 }
 
                 progressBar.Maximum = tmpMacList.Count;
-
-                // Attempt to a rate limiter (Lol).
-                Thread thread = new Thread(() =>
-                {
-                    DateTime nextSend = DateTime.Now.AddMinutes(-1);
-                    DateTime lastSend = DateTime.Now.AddMinutes(-1);
-                    int currentLimit = 0;
-                    int limit = 10;
-
-                    foreach (string macAddress in tmpMacList)
-                    {
-                        DateTime startTime = DateTime.Now;
-
-                        if (nextSend < startTime || currentLimit <= limit)
-                        {
-                            if (lastSend > startTime)
-                            {
-                                if (currentLimit >= limit)
-                                {
-                                    nextSend = (startTime + (lastSend - startTime));
-                                    Thread.Sleep(nextSend - startTime);
-                                }
-                                currentLimit++;
-                            } else
-                            {
-                                currentLimit = 0;
-                                lastSend = startTime.AddSeconds(10); // 10 seconds delay after each 10 WOL.
-                            }
-
-                            Services.MagicPacketCreator.SendMagicPacket(macAddress);
-                            progressBar.Value++;
-                            progressLabel.Text = $"{progressBar.Value}/{progressBar.Maximum} réveiller";
-                        }
-                    }
-                    this.wakeUpButton.Enabled = true;
-                }); 
-            }
-
-            DialogResult result = MessageBox.Show(DialogMessage.INFO_WAKE_UP_COMPLETED.GetMessage(),
-                DialogMessage.INFO_TITLE.GetMessage(),
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-            if (result is DialogResult.OK)
-            {
-                this.Close();
+                this.wakeUpButton.Enabled = false;
+                this.cancelButton.Enabled = false;
+                _worker.RunWorkerAsync();
             }
         }
 
@@ -166,5 +139,57 @@ namespace WakeOnLAN
                 e.Cancel = true;
             }
         }
+
+        #region Private methods
+
+        /// <summary>
+        /// Worker that wakes computers.
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void backgroundWorker_WakeComputers(object sender, DoWorkEventArgs e)
+        {
+            foreach (string macAddress in tmpMacList)
+            {
+                Services.MagicPacketCreator.SendMagicPacket(macAddress);
+                _worker.ReportProgress(1);
+                Thread.Sleep(500);
+            }
+        }
+
+
+        /// <summary>
+        /// Worker that updates information.
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value++;
+            progressLabel.Text = $"{progressBar.Value}/{progressBar.Maximum} réveiller";
+            progressLabel.Refresh();
+        }
+
+        /// <summary>
+        /// Worker called when we are done waking.
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void backgroundWorker_Completed(object sender, RunWorkerCompletedEventArgs e)
+        {
+            tmpMacList.Clear();
+
+            DialogResult result = MessageBox.Show(DialogMessage.INFO_WAKE_UP_COMPLETED.GetMessage(),
+                DialogMessage.INFO_TITLE.GetMessage(),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            if (result is DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        #endregion
     }
 }
