@@ -178,6 +178,7 @@ namespace WakeOnLAN
         private void backgroundWorker_Completed(object sender, RunWorkerCompletedEventArgs e)
         {
             tmpMacList.Clear();
+            _computerGroups.Clear();
 
             DialogResult result = MessageBox.Show(DialogMessage.INFO_WAKE_UP_COMPLETED.GetMessage(),
                 DialogMessage.INFO_TITLE.GetMessage(),

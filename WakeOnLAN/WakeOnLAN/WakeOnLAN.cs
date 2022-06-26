@@ -238,14 +238,16 @@ namespace WakeOnLAN
                             _document.DocumentElement.RemoveChild(node);
                             // Save the document.
                             _document.Save(Path.GetFullPath($"{_xmlFileLocation}{_xmlFileName}"));
-
                             // Remove group from dropdown.
                             _xmlGroups.Remove(node.Name);
                             break;
                         }
                     }
 
-                    WakeOnLAN_Load(null, null);// Reload table.
+                    // Clear groups, so we don't dupe it all.
+                    _xmlGroups.Clear();
+                    // Reload table.
+                    WakeOnLAN_Load(null, null);
 
                     MessageBox.Show(DialogMessage.CON_GROUP_DELETED.GetMessage(), 
                         DialogMessage.INFO_TITLE.GetMessage(), 
