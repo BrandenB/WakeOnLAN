@@ -17,7 +17,7 @@ namespace WakeOnLAN
         /// <summary>
         /// Property that gets the computer group.
         /// </summary>
-        public string ComputerGroup => Regex.Replace(this.computerGroup.Text.Trim(), "([^a-zA-Z0-9]+)", "");
+        public string ComputerGroup => Regex.Replace(this.computerGroup.Text.Trim(), "([^a-zA-Z0-9-]+)", "");
 
         #endregion
 

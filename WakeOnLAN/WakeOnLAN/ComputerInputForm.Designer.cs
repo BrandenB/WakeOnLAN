@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.computerLocal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.computerVLAN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.computerGroup = new System.Windows.Forms.ComboBox();
             this.ajouterButton = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.computerInformation = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.computerVLAN = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,15 +110,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Local de l\'ordinateur";
             // 
-            // computerVLAN
-            // 
-            this.computerVLAN.Location = new System.Drawing.Point(182, 144);
-            this.computerVLAN.Name = "computerVLAN";
-            this.computerVLAN.PlaceholderText = "VLAN 35";
-            this.computerVLAN.Size = new System.Drawing.Size(325, 23);
-            this.computerVLAN.TabIndex = 13;
-            this.computerVLAN.Validating += new System.ComponentModel.CancelEventHandler(this.computerVLAN_Validating);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -181,18 +172,32 @@
             this.errorProvider.BlinkRate = 150;
             this.errorProvider.ContainerControl = this;
             // 
+            // computerVLAN
+            // 
+            this.computerVLAN.Items.AddRange(new object[] {
+            "VLAN 35",
+            "VLAN 36",
+            "VLAN 37",
+            "VLAN 38",
+            "VLAN 238"});
+            this.computerVLAN.Location = new System.Drawing.Point(182, 144);
+            this.computerVLAN.Name = "computerVLAN";
+            this.computerVLAN.Size = new System.Drawing.Size(325, 23);
+            this.computerVLAN.TabIndex = 19;
+            this.computerVLAN.Validating += new System.ComponentModel.CancelEventHandler(this.computerVLAN_Validating);
+            // 
             // ComputerInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.annulerButton;
             this.ClientSize = new System.Drawing.Size(533, 274);
+            this.Controls.Add(this.computerVLAN);
             this.Controls.Add(this.computerInformation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.annulerButton);
             this.Controls.Add(this.ajouterButton);
             this.Controls.Add(this.computerGroup);
-            this.Controls.Add(this.computerVLAN);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.computerLocal);
             this.Controls.Add(this.label4);
@@ -226,7 +231,6 @@
         private Label label3;
         private TextBox computerLocal;
         private Label label4;
-        private TextBox computerVLAN;
         private Label label5;
         private ComboBox computerGroup;
         private Button ajouterButton;
@@ -234,5 +238,6 @@
         private TextBox computerInformation;
         private Label label6;
         private ErrorProvider errorProvider;
+        private ComboBox computerVLAN;
     }
 }

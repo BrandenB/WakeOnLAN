@@ -48,7 +48,11 @@
             this.HeaderComputerVLAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComputerOtherInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.wakeUpContextMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyContextMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.suprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -103,7 +107,7 @@
             // suprimerUnGroupeToolStripMenuItem
             // 
             this.suprimerUnGroupeToolStripMenuItem.Name = "suprimerUnGroupeToolStripMenuItem";
-            this.suprimerUnGroupeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.suprimerUnGroupeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.suprimerUnGroupeToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.suprimerUnGroupeToolStripMenuItem.Text = "&Suprimer un groupe";
             this.suprimerUnGroupeToolStripMenuItem.Click += new System.EventHandler(this.suprimerUnGroupeToolStripMenuItem_Click);
@@ -140,6 +144,7 @@
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -161,8 +166,12 @@
             this.dataGridView.Location = new System.Drawing.Point(0, 24);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.RowTemplate.Height = 25;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.ShowCellErrors = false;
+            this.dataGridView.ShowEditingIcon = false;
+            this.dataGridView.ShowRowErrors = false;
             this.dataGridView.Size = new System.Drawing.Size(800, 426);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CellMouseDown);
@@ -171,51 +180,89 @@
             // 
             this.HeaderComputerName.HeaderText = "Nom de l\'ordinateur";
             this.HeaderComputerName.Name = "HeaderComputerName";
+            this.HeaderComputerName.ReadOnly = true;
             // 
             // HeaderComputerMac
             // 
             this.HeaderComputerMac.HeaderText = "Adresse MAC";
             this.HeaderComputerMac.Name = "HeaderComputerMac";
+            this.HeaderComputerMac.ReadOnly = true;
             // 
             // HeaderComputerGroup
             // 
             this.HeaderComputerGroup.HeaderText = "Groupe";
             this.HeaderComputerGroup.Name = "HeaderComputerGroup";
+            this.HeaderComputerGroup.ReadOnly = true;
             // 
             // HeaderClasseName
             // 
             this.HeaderClasseName.HeaderText = "Local";
             this.HeaderClasseName.Name = "HeaderClasseName";
+            this.HeaderClasseName.ReadOnly = true;
             // 
             // HeaderComputerVLAN
             // 
             this.HeaderComputerVLAN.HeaderText = "VLAN";
             this.HeaderComputerVLAN.Name = "HeaderComputerVLAN";
+            this.HeaderComputerVLAN.ReadOnly = true;
             // 
             // ComputerOtherInfo
             // 
             this.ComputerOtherInfo.HeaderText = "Information";
             this.ComputerOtherInfo.Name = "ComputerOtherInfo";
+            this.ComputerOtherInfo.ReadOnly = true;
             // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wakeUpContextMenu,
+            this.toolStripSeparator4,
+            this.copyContextMenu,
             this.modifierToolStripMenuItem,
+            this.toolStripSeparator3,
             this.suprimerToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(123, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(165, 104);
+            // 
+            // wakeUpContextMenu
+            // 
+            this.wakeUpContextMenu.Name = "wakeUpContextMenu";
+            this.wakeUpContextMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.wakeUpContextMenu.Size = new System.Drawing.Size(164, 22);
+            this.wakeUpContextMenu.Text = "Réveiller";
+            this.wakeUpContextMenu.Click += new System.EventHandler(this.wakeUpContextMenu_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            // 
+            // copyContextMenu
+            // 
+            this.copyContextMenu.Name = "copyContextMenu";
+            this.copyContextMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copyContextMenu.Size = new System.Drawing.Size(164, 22);
+            this.copyContextMenu.Text = "Copier";
+            this.copyContextMenu.Click += new System.EventHandler(this.copyContextMenu_Click);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.modifierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
             // 
             // suprimerToolStripMenuItem
             // 
             this.suprimerToolStripMenuItem.Name = "suprimerToolStripMenuItem";
-            this.suprimerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.suprimerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.suprimerToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.suprimerToolStripMenuItem.Text = "Suprimer";
             this.suprimerToolStripMenuItem.Click += new System.EventHandler(this.suprimerToolStripMenuItem_Click);
             // 
@@ -262,5 +309,9 @@
         private ContextMenuStrip contextMenuStrip;
         private ToolStripMenuItem modifierToolStripMenuItem;
         private ToolStripMenuItem suprimerToolStripMenuItem;
+        private ToolStripMenuItem copyContextMenu;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem wakeUpContextMenu;
+        private ToolStripSeparator toolStripSeparator4;
     }
 }

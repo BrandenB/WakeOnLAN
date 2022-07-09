@@ -136,8 +136,11 @@ namespace WakeOnLAN
         /// <param name="e">Event arguments.</param>
         private void ajouterButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
+            if (ValidateChildren())
+            {
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
         }
 
         /// <summary>

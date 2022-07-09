@@ -350,6 +350,43 @@ namespace WakeOnLAN
         }
 
         /// <summary>
+        /// Method called to wake up one computer.
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void wakeUpContextMenu_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow computer = this.dataGridView.Rows[mouseLocation.RowIndex];
+
+            DialogResult result = MessageBox.Show(DialogMessage.CON_COMPUTER_WAKEUP.GetMessage()
+                    + $"\n(Ordinateur: {computer.Cells[0].Value}, Adresse MAC: {computer.Cells[1].Value})",
+                    DialogMessage.INFO_TITLE.GetMessage(),
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (result is DialogResult.Yes)
+            {
+                Services.MagicPacketCreator.SendMagicPacket(computer.Cells[1].Value.ToString() ?? "");
+
+                _ = MessageBox.Show(DialogMessage.CON_COMPUTER_WOKEUP.GetMessage()
+                    + $"\n(Ordinateur: {computer.Cells[0].Value}, Adresse MAC: {computer.Cells[1].Value})",
+                    DialogMessage.INFO_TITLE.GetMessage(),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        /// <summary>
+        /// Context menu to copy item
+        /// </summary>
+        /// <param name="sender">Sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
+        private void copyContextMenu_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.dataGridView.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex].Value.ToString());
+        }
+
+        /// <summary>
         /// Context menu edit event.
         /// </summary>
         /// <param name="sender">Sender of the event.</param>

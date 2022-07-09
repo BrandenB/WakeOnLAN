@@ -44,14 +44,20 @@ namespace WakeOnLAN.Enums
             [Description("Un nom de groupe doit être entrée.")]
             ERR_COMPUTER_GROUP_EMPTY = 9,
 
-            [Description("Le fichier xml n'existe pas. Voulez vous q'un soit crée automatiquement?")]
+            [Description("Le fichier xml n'existe pas. Voulez vous q'un soit crée automatiquement ?")]
             ERR_XML_NOT_FOUND = 10,
 
-            [Description("Le groupe a été suprimer!")]
+            [Description("Le groupe a été suprimer !")]
             CON_GROUP_DELETED = 11,
 
-            [Description("Êtes-vous sûr de vouloir supprimer cet ordinateur de la liste?")]
+            [Description("Êtes-vous sûr de vouloir supprimer cet ordinateur de la liste ?")]
             CON_COMPUTER_DELETION = 12,
+
+            [Description("Êtes-vous sûr de vouloir réveiller cet ordinateur ?")]
+            CON_COMPUTER_WAKEUP = 13,
+
+            [Description("L'ordinateur sélectionné a été réveiller !")]
+            CON_COMPUTER_WOKEUP = 14,
         }
 
         #region Public methods

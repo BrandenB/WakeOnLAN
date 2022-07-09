@@ -16,6 +16,11 @@ namespace WakeOnLAN.Services
         /// <param name="macAddress">Address of the computer to wakeup.</param>
         internal static void SendMagicPacket(string macAddress)
         {
+            if (string.IsNullOrEmpty(macAddress))
+            {
+                return;
+            }
+
             // Credits: https://benniroth.com/blog/2021-6-21-csharp-wake-over-lan/
             UdpClient udp = new UdpClient();
 
